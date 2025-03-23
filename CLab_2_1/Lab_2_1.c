@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <Windows.h>
-#define MAXSIZE 20
+#define MAXSIZE 20 
 #define BUFFER 100
 
 /*
-Â êàæäîì èç òðåõ ìàññèâîâ âåùåñòâåííûõ ÷èñåë óäàëèòü âñå ýëåìåíòû, 
-ïðèíàäëåæàùèå èíòåðâàëó [A, B]. Ìàññèâû îáúÿâèòü êàê äèíàìè÷åñêèå.
+Ã‚ ÃªÃ Ã¦Ã¤Ã®Ã¬ Ã¨Ã§ Ã²Ã°Ã¥Ãµ Ã¬Ã Ã±Ã±Ã¨Ã¢Ã®Ã¢ Ã¢Ã¥Ã¹Ã¥Ã±Ã²Ã¢Ã¥Ã­Ã­Ã»Ãµ Ã·Ã¨Ã±Ã¥Ã« Ã³Ã¤Ã Ã«Ã¨Ã²Ã¼ Ã¢Ã±Ã¥ Ã½Ã«Ã¥Ã¬Ã¥Ã­Ã²Ã», 
+Ã¯Ã°Ã¨Ã­Ã Ã¤Ã«Ã¥Ã¦Ã Ã¹Ã¨Ã¥ Ã¨Ã­Ã²Ã¥Ã°Ã¢Ã Ã«Ã³ [A, B]. ÃŒÃ Ã±Ã±Ã¨Ã¢Ã» Ã®Ã¡ÃºÃ¿Ã¢Ã¨Ã²Ã¼ ÃªÃ Ãª Ã¤Ã¨Ã­Ã Ã¬Ã¨Ã·Ã¥Ã±ÃªÃ¨Ã¥.
 */
 
 typedef struct
@@ -23,7 +23,7 @@ int InputInt(char mess[])
 	while (scanf_s("%d", &num) == 0)
 	{
 		while (getchar() != '\n');
-		puts("Âû ââåëè ÷òî-òî íå òàê, ïîâòîðèòå ââîä:");
+		puts("Ã‚Ã» Ã¢Ã¢Ã¥Ã«Ã¨ Ã·Ã²Ã®-Ã²Ã® Ã­Ã¥ Ã²Ã Ãª, Ã¯Ã®Ã¢Ã²Ã®Ã°Ã¨Ã²Ã¥ Ã¢Ã¢Ã®Ã¤:");
 	}
 	return num;
 }
@@ -34,18 +34,18 @@ double InputDouble(char mess[])
 	while (scanf_s("%lf", &num) == 0)
 	{
 		while (getchar() != '\n');
-		puts("Âû ââåëè ÷òî-òî íå òàê, ïîâòîðèòå ââîä:");
+		puts("Ã‚Ã» Ã¢Ã¢Ã¥Ã«Ã¨ Ã·Ã²Ã®-Ã²Ã® Ã­Ã¥ Ã²Ã Ãª, Ã¯Ã®Ã¢Ã²Ã®Ã°Ã¨Ã²Ã¥ Ã¢Ã¢Ã®Ã¤:");
 	}
 	return num;
 }
 int InputArr(double* arr, char arr_name[])
 {
-	printf_s("Ââåäèòå ðàçìåð ìàññèâà %s: ", arr_name);
+	printf_s("Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã°Ã Ã§Ã¬Ã¥Ã° Ã¬Ã Ã±Ã±Ã¨Ã¢Ã  %s: ", arr_name);
 	int arr_size;
 	while (scanf_s("%d", &arr_size) == 0 || arr_size > MAXSIZE || arr_size < 1)
 	{
 		while (getchar() != '\n');
-		puts("Âû ââåëè ÷òî-òî íå òàê, ïîâòîðèòå ââîä:");
+		puts("Ã‚Ã» Ã¢Ã¢Ã¥Ã«Ã¨ Ã·Ã²Ã®-Ã²Ã® Ã­Ã¥ Ã²Ã Ãª, Ã¯Ã®Ã¢Ã²Ã®Ã°Ã¨Ã²Ã¥ Ã¢Ã¢Ã®Ã¤:");
 	}
 	for (int i = 0; i < arr_size; i++)
 	{
@@ -66,7 +66,7 @@ double* GiveMemoryToArr(double* arr)
 	arr = (double*)malloc(MAXSIZE * sizeof(double));
 	if (arr == NULL)
 	{
-		printf_s("Îøèáêà âûäåëåíèÿ ïàìÿòè!\n");
+		printf_s("ÃŽÃ¸Ã¨Ã¡ÃªÃ  Ã¢Ã»Ã¤Ã¥Ã«Ã¥Ã­Ã¨Ã¿ Ã¯Ã Ã¬Ã¿Ã²Ã¨!\n");
 		system("pause");
 	}
 	return arr;
@@ -99,20 +99,20 @@ void main()
 	{
 		array[i].arr = 0;
 		array[i].arr = GiveMemoryToArr(array[i].arr);
-		printf_s("Ââåäèòå íàçâàíèå ìàññèâà #%d: ", i + 1);
+		printf_s("Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã Ã§Ã¢Ã Ã­Ã¨Ã¥ Ã¬Ã Ã±Ã±Ã¨Ã¢Ã  #%d: ", i + 1);
 		scanf_s(" %s", array[i].name, (unsigned)_countof(array[i].name));
 		array[i].size = InputArr(array[i].arr, array[i].name);
-		printf_s("Èñõîäíûé ìàññèâ %s:\n", array[i].name);
+		printf_s("ÃˆÃ±ÃµÃ®Ã¤Ã­Ã»Ã© Ã¬Ã Ã±Ã±Ã¨Ã¢ %s:\n", array[i].name);
 		OutputArr(array[i].arr, array[i].size, array[i].name);
-		double A = InputDouble("Ââåäèòå íèæíþþ ãðàíèöó A:");
-		double B = InputDouble("Ââåäèòå âåðõíþþ ãðàíèöó B:");
+		double A = InputDouble("Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã­Ã¨Ã¦Ã­Ã¾Ã¾ Ã£Ã°Ã Ã­Ã¨Ã¶Ã³ A:");
+		double B = InputDouble("Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¢Ã¥Ã°ÃµÃ­Ã¾Ã¾ Ã£Ã°Ã Ã­Ã¨Ã¶Ã³ B:");
 		while (B < A)
 		{
-			puts("Âåðõíÿÿ ãðàíèöà íå ìîæåò áûòü ìåíüøå íèæíåé");
-			B = InputDouble("Ââåäèòå âåðõíþþ ãðàíèöó B:");
+			puts("Ã‚Ã¥Ã°ÃµÃ­Ã¿Ã¿ Ã£Ã°Ã Ã­Ã¨Ã¶Ã  Ã­Ã¥ Ã¬Ã®Ã¦Ã¥Ã² Ã¡Ã»Ã²Ã¼ Ã¬Ã¥Ã­Ã¼Ã¸Ã¥ Ã­Ã¨Ã¦Ã­Ã¥Ã©");
+			B = InputDouble("Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã¢Ã¥Ã°ÃµÃ­Ã¾Ã¾ Ã£Ã°Ã Ã­Ã¨Ã¶Ã³ B:");
 		}
 		array[i].size = DeleteElInInterval(array[i].arr, array[i].size, A, B);
-		printf_s("Èçìåíåííûé ìàññèâ %s:\n", array[i].name);
+		printf_s("ÃˆÃ§Ã¬Ã¥Ã­Ã¥Ã­Ã­Ã»Ã© Ã¬Ã Ã±Ã±Ã¨Ã¢ %s:\n", array[i].name);
 		OutputArr(array[i].arr, array[i].size, array[i].name);
 		free(array[i].arr);
 	}
