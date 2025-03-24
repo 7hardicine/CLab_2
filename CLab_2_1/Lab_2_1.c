@@ -1,6 +1,7 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <stdlib.h>
 #include <Windows.h>
+#include <locale.h>
 #define MAXSIZE 20
 #define BUFFER 100
 
@@ -71,25 +72,27 @@ double* GiveMemoryToArr(double* arr)
 	}
 	return arr;
 }
-int DeleteElInInterval(double* arr, int size, double A, double B)
+double* DeleteElInInterval(double* arr, int* size, double A, double B)
 {
-	for (int i = 0; i < size; i++)
+	double* arr_new = 0;
+	arr_new = GiveMemoryToArr(arr_new);
+	int size_new = 0;
+	for (int i = 0; i < *size; i++)
 	{
-		if ((*(arr + i) >= A) && (*(arr + i) <= B))
+		if ((*(arr + i) < A) || (*(arr + i) > B))
 		{
-			for (int j = i; j < size - 1; j++)
-			{
-				*(arr + j) = *(arr + j + 1);
-			}
-			size -= 1;
-			i -= 1;
+			*(arr_new + size_new) = *(arr + i);
+			size_new++;
 		}
 	}
-	return size;
+	free(arr);
+	*size = size_new;
+	return arr_new;
 }
 
 void main()
 {
+	setlocale(LC_ALL, "rus");
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
@@ -111,7 +114,7 @@ void main()
 			puts("Верхняя граница не может быть меньше нижней");
 			B = InputDouble("Введите верхнюю границу B:");
 		}
-		array[i].size = DeleteElInInterval(array[i].arr, array[i].size, A, B);
+		array[i].arr = DeleteElInInterval(array[i].arr, &array[i].size, A, B);
 		printf_s("Измененный массив %s:\n", array[i].name);
 		OutputArr(array[i].arr, array[i].size, array[i].name);
 		free(array[i].arr);
